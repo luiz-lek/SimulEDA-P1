@@ -8,4 +8,7 @@ include_directories(.)
 add_executable(TABB
         TABB.c
         TABB.h
-        teste_TABB.c)
+        main_TABB.c
+        TG.h
+        TG.c
+        TLSE.c)
