@@ -8,11 +8,13 @@ include_directories(.)
 add_executable(TABB
         TABB.c
         TABB.h
-        main_TABB.c
+        main.c
         TG.h
         TG.c
         TLSE.c
         gabarito/src/q6.c
         gabarito/headers/q6.h
         gabarito/src/q9.c
-        gabarito/headers/q9.h)
+        gabarito/headers/q9.h
+        gabarito/headers/q8.h
+        gabarito/src/q8.c)

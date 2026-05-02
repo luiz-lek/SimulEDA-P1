@@ -30,6 +30,7 @@
 
 #include "TG.h"
 #include "gabarito/headers/q6.h"
+#include "gabarito/headers/q8.h"
 
 int main(void){
     TG *g = TG_inicializa();
@@ -52,12 +53,12 @@ int main(void){
     TG_imp_rec(g);
 
     int origem, destino;
-    printf("Origem");
+    printf("Origem: ");
     scanf("%d", &origem);
-    printf("Destino");
+    printf("Destino: ");
     scanf("%d", &destino);
 
-    TLSE* l = caminho(g, origem, destino);
+    TLSE* l = menor_caminho(g, origem, destino);
     TLSE_imprime(l);
 
     // char op;
@@ -81,3 +82,27 @@ int main(void){
     TG_libera(g);
     return 0;
 }
+
+
+/*
+1
+2
+3
+4
+5
+6
+7
+8
+9
+1 2
+1 3
+1 7
+2 4
+2 5
+2 6
+3 7
+3 8
+7 9
+5 9
+0 0
+ */

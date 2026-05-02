@@ -1,3 +1,7 @@
+
+#ifndef TLSE_H
+#define TLSE_H
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -21,3 +25,4 @@ void TLSE_lib_rec(TLSE *l);
 TLSE* TLSE_busca_rec(TLSE *l, int elem);
 TLSE* TLSE_retira_rec(TLSE *l, int elem);
 
+#endif
