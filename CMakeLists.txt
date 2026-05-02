@@ -11,4 +11,8 @@ add_executable(TABB
         main_TABB.c
         TG.h
         TG.c
-        TLSE.c)
+        TLSE.c
+        gabarito/src/q6.c
+        gabarito/headers/q6.h
+        gabarito/src/q9.c
+        gabarito/headers/q9.h)

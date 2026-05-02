@@ -29,6 +29,7 @@
 // }
 
 #include "TG.h"
+#include "gabarito/headers/q6.h"
 
 int main(void){
     TG *g = TG_inicializa();

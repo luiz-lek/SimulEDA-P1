@@ -23,6 +23,5 @@ TABB *TABB_retira(TABB *a, int info);
 
 int *maioresN(TABB *a, int N, int *tam_vet);
 void printv(int* vet, int tam);
-TABB* encadeador(TABB* a);
-void encadeador_aux(TABB* a, TABB* viz);
+
 void imprime_lista(TABB* a);
