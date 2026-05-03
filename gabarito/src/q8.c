@@ -42,8 +42,10 @@ TLSE* menor_caminho(TG *g, int origem, int destino) {
     TLSE* visitados = TLSE_inicializa();
     TLSE* fila = TLSE_inicializa();
     fila = TLSE_insere(fila, origem);
+    visitados = TLSE_insere(visitados, origem);
     int tam = busca_maior(g);
-    int *pais = (int*)calloc(tam, 4);
+    int pais[tam];
+    for (int i = 0; i < tam; i++) pais[i] = INT_MIN;
 
     while (fila) {
         int pai = pop(&fila);
@@ -63,16 +65,16 @@ TLSE* menor_caminho(TG *g, int origem, int destino) {
         }
     }
     if (!TLSE_busca(visitados, destino)) {
-        free(pais);
         TLSE_libera(visitados);
         return NULL;
     }
     TLSE* caminho = NULL;
-    int no = pais[destino];
-    while (pais[no]) {
+    int no = destino;
+    while (pais[no] != INT_MIN) {
         caminho = TLSE_insere(caminho, no);
         no = pais[no];
     }
+    caminho = TLSE_insere(caminho, no);
     TLSE_libera(visitados);
     return caminho;
 }
