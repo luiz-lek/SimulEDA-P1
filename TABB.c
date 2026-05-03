@@ -1,4 +1,5 @@
 #include "TABB.h"
+#include "TAB.h"
 
 TABB *TABB_inicializa(void){
   return NULL;
@@ -12,15 +13,15 @@ TABB *TABB_cria(int raiz, TABB *esq, TABB *dir){
   return novo;
 }
 
-int maior(int x, int y){
-  if(x >= y) return x;
-  return y;
-}
+// int maior(int x, int y){
+//   if(x >= y) return x;
+//   return y;
+// }
 
-int TABB_altura(TABB *a){
-  if(!a) return 0;
-  return maior(TABB_altura(a->esq), TABB_altura(a->dir)) + 1;
-}
+// int TABB_altura(TABB *a){
+//   if(!a) return 0;
+//   return maior(TABB_altura(a->esq), TABB_altura(a->dir)) + 1;
+// }
 
 void TABB_imp_pre(TABB *a){
   if(a){
@@ -46,23 +47,23 @@ void TABB_imp_sim(TABB *a){
   }
 }
 
-void imp_aux(TABB *a, int andar){
-  int j;
-  if(a){
-    imp_aux(a->dir, andar + 1);
-    for(j = 0; j <= andar; j++) printf("\t"); //printf("   ");
-    printf("%d\n", a->info);
-    imp_aux(a->esq, andar + 1);
-  }
-  else{
-   for(j = 0; j <= andar; j++) printf("\t");
-   printf("N\n");
-  }
-}
+// void imp_aux(TABB *a, int andar){
+//   int j;
+//   if(a){
+//     imp_aux(a->dir, andar + 1);
+//     for(j = 0; j <= andar; j++) printf("\t"); //printf("   ");
+//     printf("%d\n", a->info);
+//     imp_aux(a->esq, andar + 1);
+//   }
+//   else{
+//    for(j = 0; j <= andar; j++) printf("\t");
+//    printf("N\n");
+//   }
+// }
 
-void TABB_imp_ident(TABB *a){
-  imp_aux(a, 0);
-}
+// void TABB_imp_ident(TABB *a){
+//   imp_aux(a, 0);
+// }
 
 void TABB_libera(TABB *a){
   if(a){
@@ -139,16 +140,16 @@ int *maioresN(TABB *a, int N, int *tam_vet) {
   aux_mN(a, N, &vet, tam_vet);
 }
 
-void printv(int* vet, int tam) {
-  if (!vet) {
-    printf("\n\tNULL");
-    return;
-  }
-  printf("[ ");
-  for (int i = 0; i < tam; i++)
-    printf("%d ", vet[i]);
-  printf("]\n");
-}
+// void printv(int* vet, int tam) {
+//   if (!vet) {
+//     printf("\n\tNULL");
+//     return;
+//   }
+//   printf("[ ");
+//   for (int i = 0; i < tam; i++)
+//     printf("%d ", vet[i]);
+//   printf("]\n");
+// }
 
 
 

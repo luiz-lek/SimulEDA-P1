@@ -1,3 +1,6 @@
+#ifndef TABB_H
+#define TABB_H
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -25,3 +28,5 @@ int *maioresN(TABB *a, int N, int *tam_vet);
 void printv(int* vet, int tam);
 
 void imprime_lista(TABB* a);
+
+#endif
