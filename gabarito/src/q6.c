@@ -1,4 +1,4 @@
-#include "../../TG.h"
+#include "../../estrturas/headers/TG.h"
 TLSE* aux_caminho(TG* grafo, TLSE** visitados, int atual, int destino) {
     if(!grafo) return NULL;
 

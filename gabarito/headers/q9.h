@@ -4,7 +4,7 @@
 
 #ifndef TABB_Q9_H
 #define TABB_Q9_H
-#include "../../TABB.h"
+#include "../../estrturas/headers/TABB.h"
 
 TABB* encadeador(TABB* a);
 

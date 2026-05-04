@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "TAB.h"
-#include "TLSE.h"
+#include "../../estrturas/headers/TAB.h"
+#include "../../estrturas/TLSE.h"
 
 TLSE** caminho_aux(TAB *a, TLSE **vet, int* caminho, int n, int *tam_vet_caminhos, int i){
     if(!a) return vet;

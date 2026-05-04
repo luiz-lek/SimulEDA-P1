@@ -6,12 +6,12 @@ set(CMAKE_C_STANDARD 11)
 include_directories(.)
 
 add_executable(TABB
-        TABB.c
-        TABB.h
+        estrturas/src/TABB.c
+        estrturas/headers/TABB.h
         main.c
-        TG.h
-        TG.c
-        TLSE.c
+        estrturas/headers/TG.h
+        estrturas/src/TG.c
+        estrturas/src/TLSE.c
         gabarito/src/q6.c
         gabarito/headers/q6.h
         gabarito/src/q9.c
@@ -20,6 +20,6 @@ add_executable(TABB
         gabarito/src/q8.c
         gabarito/headers/q5.h
         gabarito/src/q5.c
-        TAB.c
+        estrturas/src/TAB.c
         gabarito/headers/q2.h
         gabarito/src/q2.c)

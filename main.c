@@ -28,8 +28,6 @@
 //   return 0;
 // }
 
-#include "TG.h"
-#include "TAB.h"
 #include "gabarito/headers/q5.h"
 #include "gabarito/headers/q6.h"
 #include "gabarito/headers/q8.h"

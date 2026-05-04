@@ -1,4 +1,4 @@
-#include "TAB.h"
+#include "../TAB.h"
 
 TAB *TAB_inicializa(void){
   return NULL;
