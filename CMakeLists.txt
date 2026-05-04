@@ -20,4 +20,6 @@ add_executable(TABB
         gabarito/src/q8.c
         gabarito/headers/q5.h
         gabarito/src/q5.c
-        TAB.c)
+        TAB.c
+        gabarito/headers/q3.h
+        gabarito/src/q3.c)

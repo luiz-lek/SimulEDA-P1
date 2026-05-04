@@ -4,9 +4,9 @@
 
 #ifndef TABB_Q5_H
 #define TABB_Q5_H
-#include "TLSE.h"
+#include "../../TLSE.h"
 #include "TAB.h"
 
-TLSE** caminhos(TAB *a, int n, int* pos);
+TLSE** caminhos(TAB *a, int n);
 
 #endif //TABB_Q5_H

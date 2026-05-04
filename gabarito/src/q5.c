@@ -1,48 +1,44 @@
-//
-// Created by eric on 02/05/2026.
-//
-
 #include "../headers/q5.h"
-#include <limits.h>
 
-TLSE** caminhos_aux(TAB* a, int n, TLSE** v, int* pos) {
-    if (!a) return v;
-    if ((n - a->info) == 0) {
-        v[*pos] = TLSE_insere(v[*pos], a->info);
-        (*pos)++;
-        v = realloc(v, ((*pos)+1) * sizeof(TLSE*));
-        if (!v) return NULL;
-        v[(*pos)] = NULL;
-        return v;
-    }
+#include <stdio.h>
+#include <stdlib.h>
 
-    n = n - a->info;
-    v = caminhos_aux(a->esq, n, v, pos);
-    v = caminhos_aux(a->dir, n, v, pos);
+#include "TAB.h"
+#include "TLSE.h"
 
-    int esq, dir;
-    esq = dir = INT_MAX;
-    if (a->esq) {
-        esq = a->esq->info;
-    }
-    if (a->dir) {
-        dir = a->dir->info;
-    }
+TLSE** caminho_aux(TAB *a, TLSE **vet, int* caminho, int n, int *tam_vet_caminhos, int i){
+    if(!a) return vet;
 
-    for (int i = 0; i < (*pos); i++) {
-        if ((v[i]->info == esq) || (v[i]->info == dir)) {
-            v[i] = TLSE_insere(v[i], a->info);
+    caminho[i] = a->info;
+    n-=a->info;
+
+    if(n == 0) {
+        (*tam_vet_caminhos)++;
+        vet = (TLSE**)realloc(vet,(*tam_vet_caminhos)*sizeof(TLSE*));
+        vet[(*tam_vet_caminhos)-1] = NULL;
+        for (int j = i; j >= 0; j--) {
+            vet[*tam_vet_caminhos-1] = TLSE_insere(vet[*tam_vet_caminhos-1], caminho[j]);
         }
+        return vet;
     }
-    return v;
+
+    vet = caminho_aux(a->esq,vet,caminho, n, tam_vet_caminhos, i+1);
+    vet = caminho_aux(a->dir,vet,caminho, n,tam_vet_caminhos, i+1);
+    return vet;
 }
 
-TLSE** caminhos(TAB *a, int n, int* pos) {
-    if (!a) return NULL;
-    TLSE** v = (TLSE**)malloc(sizeof(TLSE*));
-    if (!v) return NULL;
-    v[*pos] = NULL;
-    v = caminhos_aux(a, n, v, pos);
+TLSE** caminhos(TAB *a,int n){
+    if(!a) return NULL;
 
-    return v;
+    TLSE** vet = NULL;
+    int caminho[TAB_altura(a)];
+    int i =  0;
+    int tam_vet_caminhos = 0;
+
+    vet = caminho_aux(a, vet,caminho,n,&tam_vet_caminhos,i);
+    for (int j = 0; j < i; j++) {
+        TLSE_imprime(vet[j]);
+        printf("\n");
+    }
+    return vet;
 }
