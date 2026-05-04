@@ -1,4 +1,4 @@
-#include "../headers/q3.h"
+#include "../headers/q2.h"
 
 int aux(TAB *a, TAB *simetrica) {
     if(!a && !simetrica) return 1;
