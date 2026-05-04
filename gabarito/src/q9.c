@@ -13,7 +13,6 @@ void encadeador_aux(TABB* a, TABB* prox) {
 
 TABB* encadeador(TABB* a) {
     if (!a) return NULL;
-    a->prox = NULL;
     encadeador_aux(a, NULL);
     return a;
 }
