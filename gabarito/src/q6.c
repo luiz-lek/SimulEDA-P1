@@ -1,4 +1,5 @@
-#include "../../TG.h"
+#include "../../estrturas/headers/TG.h"
+
 TLSE* aux_caminho(TG* grafo, TLSE** visitados, int atual, int destino) {
     if(!grafo) return NULL;
 
@@ -13,7 +14,6 @@ TLSE* aux_caminho(TG* grafo, TLSE** visitados, int atual, int destino) {
     *visitados = TLSE_insere(*visitados, atual);
 
     TVIZ* vizinho = no->prim_viz;
-    TLSE* caminho = NULL;
     while(vizinho) {
         if(!TLSE_busca(*visitados, vizinho->id_viz)) {
             TLSE* busca = aux_caminho(grafo, visitados, vizinho->id_viz, destino);

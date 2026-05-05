@@ -4,8 +4,8 @@
 #ifndef TABB_Q8_H
 #define TABB_Q8_H
 
-#include "../../TG.h"
-#include "../../TLSE.h"
+#include "../../estrturas/headers/TG.h"
+#include "../../estrturas/headers/TLSE.h"
 #include <limits.h>
 
 TLSE* menor_caminho(TG *g, int origem, int destino);

@@ -37,44 +37,46 @@ int pop(TLSE** l) {
 }
 
 TLSE* menor_caminho(TG *g, int origem, int destino) {
-    if (!g) return NULL;
+    if(!g) return NULL;
 
-    TLSE* visitados = TLSE_inicializa();
     TLSE* fila = TLSE_inicializa();
-    fila = TLSE_insere(fila, origem);
-    visitados = TLSE_insere(visitados, origem);
     int tam = busca_maior(g);
-    int pais[tam];
-    for (int i = 0; i < tam; i++) pais[i] = INT_MIN;
+    int pai[tam];
+    int visitados[tam];
 
-    while (fila) {
-        int pai = pop(&fila);
-        if (pai == destino) {
-            break;
-        }
-        TVIZ* vizinho = TG_busca_no(g, pai)->prim_viz;
-        //TVIZ* vizinho = aux->prim_viz;
+    for(int i = 0; i < tam; i++) {
+        visitados[i] = 0;
+        pai[i] = INT_MIN;
+    }
+    visitados[origem] = 1;
+    fila = TLSE_insere(fila, origem);
 
+    while(fila) {
+        int vertice = pop(&fila);
+        if (vertice == destino) break;
+
+        TVIZ* vizinho = TG_busca_no(g, vertice)->prim_viz;
         while(vizinho) {
-            if (!TLSE_busca(visitados, vizinho->id_viz)) {
-                visitados = TLSE_insere(visitados, vizinho->id_viz);
+            if (!visitados[vizinho->id_viz]) {
                 fila = TLSE_insere(fila, vizinho->id_viz);
-                pais[vizinho->id_viz] = pai;
+                visitados[vizinho->id_viz] = 1;
+                pai[vizinho->id_viz] = vertice;
             }
             vizinho = vizinho->prox_viz;
         }
     }
-    if (!TLSE_busca(visitados, destino)) {
-        TLSE_libera(visitados);
-        return NULL;
-    }
+
+    if(fila) TLSE_libera(fila);
+
+    if(!visitados[destino]) return NULL;
+
     TLSE* caminho = NULL;
     int no = destino;
-    while (pais[no] != INT_MIN) {
+    while(pai[no] != INT_MIN) {
         caminho = TLSE_insere(caminho, no);
-        no = pais[no];
+        no = pai[no];
     }
     caminho = TLSE_insere(caminho, no);
-    TLSE_libera(visitados);
+
     return caminho;
 }
