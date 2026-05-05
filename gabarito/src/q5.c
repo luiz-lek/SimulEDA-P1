@@ -19,7 +19,6 @@ TLSE** caminho_aux(TAB *a, TLSE **vet, int* caminho, int n, int *tam_vet_caminho
         for (int j = i; j >= 0; j--) {
             vet[*tam_vet_caminhos-1] = TLSE_insere(vet[*tam_vet_caminhos-1], caminho[j]);
         }
-        return vet;
     }
 
     vet = caminho_aux(a->esq,vet,caminho, n, tam_vet_caminhos, i+1);
