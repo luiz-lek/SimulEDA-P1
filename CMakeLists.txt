@@ -22,4 +22,6 @@ add_executable(TABB
         gabarito/src/q5.c
         estrturas/src/TAB.c
         gabarito/headers/q2.h
-        gabarito/src/q2.c)
+        gabarito/src/q2.c
+        gabarito/src/q7.c
+        gabarito/headers/q7.h)
