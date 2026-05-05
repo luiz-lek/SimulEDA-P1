@@ -36,7 +36,7 @@ TLSE** preenche_caminho_vetor(TLSE** caminhos, int* tam_vet_caminhos, int* camin
     return caminhos;
 }
 
-TLSE** aux(TG* g, int atual, int destino, int* visitados, int* caminho_atual, int i,
+TLSE** aux_cam(TG* g, int atual, int destino, int* visitados, int* caminho_atual, int i,
     TLSE** caminhos, int* tam_vet_caminhos) {
     TG* no = TG_busca_no(g, atual);
     if(!no) return caminhos;
@@ -52,7 +52,7 @@ TLSE** aux(TG* g, int atual, int destino, int* visitados, int* caminho_atual, in
     TVIZ* vizinho = no->prim_viz;
     while(vizinho) {
         if(!visitados[vizinho->id_viz]) {
-            caminhos = aux(g, vizinho->id_viz, destino, visitados, caminho_atual, i+1, caminhos, tam_vet_caminhos);
+            caminhos = aux_cam(g, vizinho->id_viz, destino, visitados, caminho_atual, i+1, caminhos, tam_vet_caminhos);
         }
         vizinho = vizinho->prox_viz;
     }
@@ -61,7 +61,7 @@ TLSE** aux(TG* g, int atual, int destino, int* visitados, int* caminho_atual, in
     return caminhos;
 }
 
-TLSE** caminho(TG *g, int origem, int destino) {
+TLSE** cams(TG *g, int origem, int destino) {
     if(!g) return NULL;
     if(!TG_busca_no(g, origem) || !TG_busca_no(g, destino)) return NULL;
 
@@ -76,7 +76,12 @@ TLSE** caminho(TG *g, int origem, int destino) {
     TLSE** caminhos = NULL;
     int tam_vet_caminhos = 0;
 
-    caminhos = aux(g, origem, destino, visitados, caminho, 0, caminhos, &tam_vet_caminhos);
+    caminhos = aux_cam(g, origem, destino, visitados, caminho, 0, caminhos, &tam_vet_caminhos);
+
+    for(int i = 0; i < tam_vet_caminhos; i++) {
+        TLSE_imprime(caminhos[i]);
+        printf("\n");
+    }
 
     return caminhos;
 }

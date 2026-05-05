@@ -1,14 +1,12 @@
 //
-// Created by eric on 04/05/2026.
+// Created by luiz-p on 05/05/2026.
 //
 
-#ifndef Q4_H
-#define Q4_H
+#ifndef TABB_Q4_H
+#define TABB_Q4_H
 
-#include "TABB.h"
+#include "../../estrturas/headers/TAB.h"
 
-int maior(int a, int b);
-int altura(TABB* a);
-int eh_avl(TABB *a);
+int eh_avl(TAB *a);
 
 #endif //TABB_Q4_H

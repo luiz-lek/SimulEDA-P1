@@ -8,6 +8,6 @@
 #include "../../estrturas/headers/TLSE.h"
 #include "../../estrturas/headers/TG.h"
 
-TLSE** caminho(TG *g, int origem, int destino);
+TLSE** cams(TG *g, int origem, int destino);
 
 #endif //TABB_Q7_H

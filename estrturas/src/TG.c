@@ -1,4 +1,4 @@
-#include "../TG.h"
+#include "../headers/TG.h"
 
 TG* TG_inicializa(){
   return NULL;

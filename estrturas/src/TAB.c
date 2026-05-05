@@ -1,4 +1,4 @@
-#include "../TAB.h"
+#include "../headers/TAB.h"
 
 TAB *TAB_inicializa(void){
   return NULL;
@@ -77,22 +77,6 @@ int maior(int x, int y){
 int TAB_altura(TAB *a){
   if(!a) return -1;
   return maior(TAB_altura(a->esq), TAB_altura(a->dir)) + 1;
-}
-void aux(TAB* a, int* soma, int nivel) {
-  if (!a) return;
-
-  aux(a->esq, soma, !nivel);
-
-  if (nivel) *soma += a->info;
-  if (!nivel) *soma -= a->info;
-
-  aux(a->dir, soma, !nivel);
-
-}
-int misc1(TAB *a) {
-  int soma = 0;
-  aux(a, &soma, 1);
-  return soma;
 }
 
 void aux_med(TAB* a, int nivel, int* vet, int* quant ) {

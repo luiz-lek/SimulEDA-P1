@@ -4,35 +4,41 @@
 
 #include "../headers/q8.h"
 
-int busca_maior(TG* l) {
-    if (!l) return INT_MIN;
+int busca_maior(TG* g) {
+    if (!g) return INT_MIN;
     int maior = INT_MIN;
 
-    while (l->prox_no) {
-        if (l->id_no > maior) maior = l->id_no;
-        l = l->prox_no;
+    while (g) {
+        if (g->id_no > maior) maior = g->id_no;
+        g = g->prox_no;
     }
 
     return maior+1;
 }
 
 int pop(TLSE** l) {
-    if (!l) return -33;
+    if (!l || !(*l)) return -33;
+
     TLSE* aux = *l;
+    TLSE* ant = NULL;
     int resp;
+
     if (!(*l)->prox) {
         resp = (*l)->info;
         free(*l);
-        (*l) = NULL;
+        *l = NULL;
         return resp;
     }
+
     while (aux->prox) {
-        *l = aux;
+        ant = aux;
         aux = aux->prox;
     }
+
     resp = aux->info;
+    ant->prox = NULL;
     free(aux);
-    (*l)->prox = NULL;
+
     return resp;
 }
 

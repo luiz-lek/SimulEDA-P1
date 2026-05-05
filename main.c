@@ -29,7 +29,7 @@
 // }
 
 #include "gabarito/headers/q5.h"
-#include "gabarito/headers/q6.h"
+#include "gabarito/headers/q7.h"
 #include "gabarito/headers/q8.h"
 
 
@@ -62,10 +62,8 @@ int main(void){
     printf("Destino: ");
     scanf("%d", &destino);
 
-    TLSE* l = menor_caminho(g, origem, destino);
-    TLSE_imprime(l);
+    TLSE** l = cams(g, origem, destino);
 
-    TLSE_libera(l);
     TG_libera(g);
 
     return 0;

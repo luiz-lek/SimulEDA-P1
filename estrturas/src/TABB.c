@@ -1,5 +1,4 @@
-#include "../TABB.h"
-#include "../headers/TAB.h"
+#include "../headers/TABB.h"
 
 TABB *TABB_inicializa(void){
   return NULL;
